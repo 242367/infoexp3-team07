@@ -1,1 +1,48 @@
-body{font-family:system-ui,sans-serif;background:#f8fafc;color:#172033;margin:0}main{max-width:720px;margin:40px auto;padding:24px}form,.message{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:16px;margin:14px 0}input,textarea,button{font:inherit;width:100%;padding:10px;margin:6px 0;box-sizing:border-box}textarea{min-height:90px}button{background:#2563eb;color:white;border:0;border-radius:8px;font-weight:700}.meta{color:#64748b;font-size:.85rem}
+body {
+    font-family: system-ui, sans-serif;
+    background: #f8fafc;
+    color: #172033;
+    margin: 0
+}
+
+main {
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 24px
+}
+
+form,
+.message {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 14px 0
+}
+
+input,
+textarea,
+button {
+    font: inherit;
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    box-sizing: border-box
+}
+
+textarea {
+    min-height: 90px
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: 0;
+    border-radius: 8px;
+    font-weight: 700
+}
+
+.meta {
+    color: #64748b;
+    font-size: .85rem
+}
