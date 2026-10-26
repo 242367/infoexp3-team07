@@ -3,6 +3,9 @@ from pathlib import Path
 import sqlite3
 from datetime import datetime, timezone
 
+# リアクション機能
+from reactions import create_reactions_blueprint, init_reactions_db
+
 app = Flask(__name__)
 DB = Path("data/miniboard.db")
 
@@ -39,6 +42,14 @@ def init_db():
         """)
 
 
+    # リアクション用テーブルの初期化
+    init_reactions_db(connect)
+
+
+# リアクションAPIの登録
+app.register_blueprint(create_reactions_blueprint(connect))
+
+
 @app.get("/")
 def index():
     return render_template("index.html")
@@ -47,6 +58,7 @@ def index():
 @app.get("/api/messages")
 def get_messages():
     with connect() as con:
+<<<<<<< Updated upstream
         messages = [
             dict(row) for row in
             con.execute("SELECT * FROM messages ORDER BY id DESC").fetchall()
@@ -68,6 +80,14 @@ def get_messages():
 
     return jsonify(messages)
 
+=======
+        rows = con.execute(
+            "SELECT * FROM messages ORDER BY id DESC"
+        ).fetchall()
+
+    return jsonify([dict(r) for r in rows])
+>>>>>>> Stashed changes
+
 
 @app.post("/api/messages")
 def create_message():
@@ -82,18 +102,27 @@ def create_message():
 
     with connect() as con:
         cur = con.execute(
+<<<<<<< Updated upstream
             """INSERT INTO messages(name, message, created_at)
                VALUES (?, ?, ?)""",
             (name, message, created_at)
         )
         row = con.execute(
             "SELECT * FROM messages WHERE id = ?",
+=======
+            "INSERT INTO messages(name,message,created_at) VALUES(?,?,?)",
+            (name, message, created_at)
+        )
+        row = con.execute(
+            "SELECT * FROM messages WHERE id=?",
+>>>>>>> Stashed changes
             (cur.lastrowid,)
         ).fetchone()
 
     return jsonify(dict(row)), 201
 
 
+<<<<<<< Updated upstream
 @app.post("/api/messages/<int:message_id>/replies")
 def create_reply(message_id):
     data = request.get_json(silent=True) or {}
@@ -128,6 +157,8 @@ def create_reply(message_id):
     return jsonify(dict(row)), 201
 
 
+=======
+>>>>>>> Stashed changes
 @app.put("/api/messages/<int:message_id>")
 def update_message(message_id):
     data = request.get_json(silent=True) or {}
@@ -138,9 +169,16 @@ def update_message(message_id):
 
     with connect() as con:
         cur = con.execute(
+<<<<<<< Updated upstream
             "UPDATE messages SET message = ? WHERE id = ?",
             (message, message_id)
         )
+=======
+            "UPDATE messages SET message=? WHERE id=?",
+            (message, message_id)
+        )
+
+>>>>>>> Stashed changes
         if cur.rowcount == 0:
             return jsonify({"error": "not found"}), 404
 
@@ -151,9 +189,16 @@ def update_message(message_id):
 def delete_message(message_id):
     with connect() as con:
         cur = con.execute(
+<<<<<<< Updated upstream
             "DELETE FROM messages WHERE id = ?",
             (message_id,)
         )
+=======
+            "DELETE FROM messages WHERE id=?",
+            (message_id,)
+        )
+
+>>>>>>> Stashed changes
         if cur.rowcount == 0:
             return jsonify({"error": "not found"}), 404
 

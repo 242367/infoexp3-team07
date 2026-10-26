@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -5,20 +6,35 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>MiniBoard</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/reactions.css">
 </head>
 <body>
     <main>
         <h1>MiniBoard</h1>
         <p>チームで育てる小さなWebアプリ</p>
-        <form id="form"><input id="name" maxlength="30" placeholder="Nickname" required><textarea id="message"
-                maxlength="300" placeholder="Message" required></textarea>
-                <p id="inputlength">0文字</p>
-                <button>投稿</button>
+
+        <form id="form">
+            <input
+                id="name"
+                maxlength="30"
+                placeholder="Nickname"
+                required
+            >
+            <textarea
+                id="message"
+                maxlength="300"
+                placeholder="Message"
+                required
+            ></textarea>
+            <p id="inputlength">0文字</p>
+            <button>投稿</button>
         </form>
+
         <p id="status"></p>
         <section id="messages"></section>
     </main>
+
+    <script src="/static/reactions.js"></script>
     <script src="/static/app.js"></script>
 </body>
-
 </html>
