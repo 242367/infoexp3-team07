@@ -1,23 +1,34 @@
 body {
     font-family: system-ui, sans-serif;
-    background: #f8fafc;
+    background: #f1f5f9;
     color: #172033;
-    margin: 0
+    margin: 0;
+    line-height: 1.6;
 }
 
 main {
     max-width: 720px;
-    margin: 40px auto;
-    padding: 24px
+    margin: 24px auto;
+    padding: 20px;
 }
 
-form,
+form {
+    background: white;
+    border: 1px solid #dbe4f0;
+    border-radius: 14px;
+    padding: 18px;
+    margin: 16px 0;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
 .message {
     background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    border: 1px solid #dbe4f0;
+    border-radius: 14px;
     padding: 16px;
-    margin: 14px 0
+    margin: 14px 0;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+    overflow-wrap: anywhere;
 }
 
 input,
@@ -25,13 +36,28 @@ textarea,
 button {
     font: inherit;
     width: 100%;
-    padding: 10px;
+    padding: 10px 12px;
     margin: 6px 0;
-    box-sizing: border-box
+    box-sizing: border-box;
+}
+
+input,
+textarea {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+    color: #172033;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
 }
 
 textarea {
-    min-height: 90px
+    min-height: 90px;
+    resize: vertical;
 }
 
 button {
@@ -39,10 +65,121 @@ button {
     color: white;
     border: 0;
     border-radius: 8px;
-    font-weight: 700
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
 }
 
 .meta {
     color: #64748b;
-    font-size: .85rem
+    font-size: 0.82rem;
+    margin-top: 8px;
+}
+
+#inputlength {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.message .message {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    margin: 12px 0 0 16px;
+    padding: 12px;
+    box-shadow: none;
+}
+
+@media (max-width: 600px) {
+    main {
+        margin: 12px auto;
+        padding: 12px;
+    }
+
+    form,
+    .message {
+        padding: 12px;
+    }
+
+    .message .message {
+        margin-left: 8px;
+    }
+}
+
+.message {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #dbe4f0;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.05);
+    overflow-wrap: anywhere;
+}
+
+.message > b {
+    font-size: 1.05rem;
+    color: #1e293b;
+}
+
+.message > p {
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+.message > .reply-button {
+    width: auto;
+    padding: 7px 16px;
+    margin-top: 12px;
+    background: #e8efff;
+    color: #1d4ed8;
+    border: 1px solid #c7d7fe;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.message > .reply-button:hover {
+    background: #dbe7ff;
+}
+
+.reply-form {
+    background: #f8fafc;
+    border: 1px solid #dbe4f0;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 12px;
+}
+
+.reply-form button[type="submit"] {
+    background: #2563eb;
+}
+
+.reply-form .cancel-reply {
+    background: #64748b;
+}
+
+.replies {
+    margin-top: 14px;
+    padding-left: 16px;
+    border-left: 3px solid #bfdbfe;
+}
+
+.reply {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    overflow-wrap: anywhere;
+}
+
+.reply b {
+    color: #1d4ed8;
+}
+
+.reply p {
+    margin: 6px 0;
+    line-height: 1.7;
 }
